@@ -1,0 +1,44 @@
+*{
+	Box-sizing: border-box;
+	Margin: 0;
+	Padding: 0;
+    /* justify-self: center;
+    justify-content: center;
+     */
+}
+
+Img{
+	
+	height: auto;
+    justify-self: center;
+}
+
+hr{
+    background-color: #0000EE;
+    
+}
+
+#content{
+    margin: 0 auto;
+    background-color: lightgray;
+    justify-content: center;
+    justify-items: center;
+    max-width: 1000px;
+}
+
+h1{
+    padding-top: 50px;
+    padding-bottom: 25px;
+}
+
+h1+p{
+    color: #0000EE;
+}
+
+li{
+    list-style-type: none;
+}
+
+h2{
+    margin: 25px 25px;
+}
