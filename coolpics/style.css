@@ -70,6 +70,8 @@ img {
     box-shadow: 5px 5px 10px 1px black;
     object-fit: cover;
     aspect-ratio: 1;
+    max-width: 300px;
+    /* max-height: 345px; */
 }
 
 nav {
