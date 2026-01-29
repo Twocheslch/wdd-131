@@ -38,6 +38,7 @@ main {
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
+    object-fit: cover;
 
 }
 
@@ -67,6 +68,10 @@ img {
     margin: 1em auto;
     border: 10px solid white;
     box-shadow: 5px 5px 10px 1px black;
+    object-fit: cover;
+    aspect-ratio: 1;
+    max-width: 300px;
+    /* max-height: 345px; */
 }
 
 nav {
