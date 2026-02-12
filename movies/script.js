@@ -76,3 +76,4 @@ menuBtn.addEventListener("click", function () {
   const isOpen = siteNav.classList.toggle("open");
   menuBtn.setAttribute("aria-expanded", isOpen);
 });
+
