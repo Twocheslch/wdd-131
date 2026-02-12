@@ -89,3 +89,56 @@ header, footer {
     padding-left: 20px;
   }
 }
+
+.menu-btn {
+  background: transparent;
+  border: 0;
+  color: #ffc107;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 699px) {
+  #site-nav .main-nav {
+    display: none;
+    margin: 0;
+  }
+
+  #site-nav.open .main-nav {
+    display: block;
+  }
+
+  .main-nav li {
+    padding: 8px 0;
+  }
+}
+
+.menu-btn {
+  background: transparent;
+  border: 0;
+  color: #ffc107;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 699px) {
+  .main-nav {
+    display: none;
+  }
+
+  #site-nav.open .main-nav {
+    display: block;
+  }
+}
+
+@media (min-width: 700px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+}

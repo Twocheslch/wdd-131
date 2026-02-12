@@ -68,3 +68,11 @@ allRatingElems.forEach(function (elem) {
   elem.setAttribute("aria-label", rating + " out of 5 stars");
   elem.setAttribute("role", "img");
 });
+
+const menuBtn = document.querySelector(".menu-btn");
+const siteNav = document.getElementById("site-nav");
+
+menuBtn.addEventListener("click", function () {
+  const isOpen = siteNav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+});
