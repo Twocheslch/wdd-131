@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Example Credit Card Form</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <main class="stage" aria-label="Example credit card payment form">
+    <!-- Front card -->
+    <section class="card card-front" aria-label="Front of credit card form">
+      <p class="total" aria-label="Total amount">$TOTAL: $199</p>
+
+      <div class="mini-card" aria-hidden="true">
+        <div class="mini-card__stripe"></div>
+        <div class="mini-card__line mini-card__line--1"></div>
+        <div class="mini-card__line mini-card__line--2"></div>
+      </div>
+
+      <form id="cc-form" novalidate>
+        <div class="field field-number">
+          <label for="cardNumber">CARD NUMBER</label>
+          <input
+            id="cardNumber"
+            name="cardNumber"
+            inputmode="numeric"
+            autocomplete="cc-number"
+            placeholder="1234 5678 9101 1020"
+            aria-label="Card number"
+            required
+          />
+        </div>
+
+        <div class="field field-holder">
+          <label for="cardHolder">CARD HOLDER</label>
+          <input
+            id="cardHolder"
+            name="cardHolder"
+            autocomplete="cc-name"
+            placeholder="John Doe"
+            aria-label="Name on card"
+            required
+          />
+        </div>
+
+        <div class="field field-exp">
+          <label class="exp-label" for="expMonth">EXPIRATION</label>
+          <div class="exp-row" aria-label="Expiration date">
+            <input
+              id="expMonth"
+              name="expMonth"
+              inputmode="numeric"
+              autocomplete="cc-exp-month"
+              placeholder="MM"
+              maxlength="2"
+              aria-label="Expiration month"
+              required
+            />
+            <input
+              id="expYear"
+              name="expYear"
+              inputmode="numeric"
+              autocomplete="cc-exp-year"
+              placeholder="YY"
+              maxlength="2"
+              aria-label="Expiration year"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Hidden submit (button shown outside to match screenshot) -->
+        <button class="sr-only" type="submit">Submit</button>
+      </form>
+    </section>
+
+    <!-- Back card -->
+    <section class="card card-back" aria-label="Back of credit card form">
+      <div class="mag-stripe" aria-hidden="true"></div>
+
+      <div class="cvc-block">
+        <label for="cvc">CVC/CVV security code</label>
+        <input
+          id="cvc"
+          name="cvc"
+          form="cc-form"
+          inputmode="numeric"
+          autocomplete="cc-csc"
+          placeholder="xxx"
+          maxlength="4"
+          aria-label="Card security code"
+          required
+        />
+      </div>
+    </section>
+
+    <!-- Submit button -->
+    <button id="submitBtn" class="submit" type="button" aria-label="Submit credit card form">
+      Submit
+    </button>
+
+    <!-- Popup / modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close="true"></div>
+      <div
+        class="modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalBody"
+      >
+        <h2 id="modalTitle" class="modal__title">Message</h2>
+        <div id="modalBody" class="modal__body" role="status" aria-live="polite"></div>
+        <button id="modalClose" class="modal__close" type="button" aria-label="Close message">
+          OK
+        </button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
