@@ -7,7 +7,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
   color: #111;
-  background: #fff;
+  background: white;
 }
 
 main {
@@ -56,10 +56,10 @@ thead th {
 }
 
 tbody td {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid white;
   padding: 10px 8px;
 }
 
 tbody tr:nth-child(even) {
-  background: #fafafa;
+  background: white;
 }
