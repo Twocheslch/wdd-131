@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hike Finder</title>
+  <meta name="description" content="Search, filter, and sort local hikes by name, tags, description, and distance.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hike Finder">
+  <meta property="og:description" content="Search hikes by name, tags, and description, then sort them by distance.">
+  <meta property="og:url" content="https://example.com/hike-finder">
+  <meta property="og:image" content="https://wdd131.netlify.app/examples/hikes/images/teton-canyon.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hike Finder">
+  <meta name="twitter:description" content="Search hikes by name, tags, and description, then sort them by distance.">
+  <meta name="twitter:image" content="https://wdd131.netlify.app/examples/hikes/images/teton-canyon.jpg">
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="hikes.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Hike Finder</h1>
+      <p>Find trails by name, tags, and description.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="Search and sort hikes">
+      <label for="search">Enter Search</label>
+      <div class="control-row">
+        <input id="search" type="text" placeholder="Try waterfall, yellowstone, canyon...">
+        <button id="searchBtn" type="button">Search</button>
+        <button id="sortBtn" type="button" aria-pressed="false">Sort: Shortest First</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section id="hike-container" class="hike-container" aria-live="polite"></section>
+  </main>
+</body>
+</html>
