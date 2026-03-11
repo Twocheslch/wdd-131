@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Web Development",
+        "description": "Build custom web applications that meet your business needs.",
+        "price": "$500 - $2000",
+        "category": "Development"
+    },
+    {
+        "id": 2,
+        "name": "UI/UX Design",
+        "description": "Create intuitive and visually appealing user interfaces.",
+        "price": "$300 - $1500",
+        "category": "Design"
+    },
+    {
+        "id": 3,
+        "name": "SEO Optimization",
+        "description": "Improve your website's search engine rankings to drive traffic.",
+        "price": "$200 - $800",
+        "category": "Marketing"
+    }
+]

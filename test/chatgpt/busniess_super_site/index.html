@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luminate Studio helps brands grow with design, development, and strategy." />
+  <title>Luminate Studio | Creative Digital Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html" aria-label="Luminate Studio home">Luminate<span>Studio</span></a>
+
+      <button
+        class="nav-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Strategy. Design. Growth.</p>
+          <h1>We build digital experiences that turn visitors into loyal customers.</h1>
+          <p class="lead">
+            Luminate Studio is a fictional agency specializing in brand identity, responsive websites,
+            content systems, and conversion-focused digital campaigns.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="services.html">Explore Services</a>
+            <a class="btn btn-secondary" href="contact.html">Book a Consultation</a>
+          </div>
+        </div>
+        <div class="hero-card card">
+          <h2>Why teams choose us</h2>
+          <ul class="feature-list">
+            <li>Accessible, responsive front-end systems</li>
+            <li>Performance-minded development</li>
+            <li>Clear brand strategy and messaging</li>
+            <li>Scalable content-driven architecture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Featured Services</p>
+          <h2>Solutions built for ambitious brands</h2>
+          <p>We blend design, code, and marketing insight to deliver measurable results.</p>
+        </div>
+        <div id="featured-services" class="card-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Impact</p>
+          <h2>Results that speak for themselves</h2>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card card">
+            <h3 class="counter" data-target="128">0</h3>
+            <p>Projects completed</p>
+          </article>
+          <article class="stat-card card">
+            <h3 class="counter" data-target="86">0</h3>
+            <p>Clients served</p>
+          </article>
+          <article class="stat-card card">
+            <h3 class="counter" data-target="12">0</h3>
+            <p>Years of experience</p>
+          </article>
+          <article class="stat-card card">
+            <h3 class="counter" data-target="97">0</h3>
+            <p>Average retention rate</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Testimonials</p>
+          <h2>Trusted by teams that needed more than a pretty website</h2>
+        </div>
+        <div class="card-grid testimonials-grid">
+          <article class="card testimonial-card">
+            <p>“Luminate helped us clarify our message and launch a site that actually converts. The new experience feels premium and easy to manage.”</p>
+            <h3>Amelia Brooks</h3>
+            <span>Founder, North Peak Health</span>
+          </article>
+          <article class="card testimonial-card">
+            <p>“Their process was organized, collaborative, and fast. We ended up with stronger branding and a cleaner content workflow.”</p>
+            <h3>Marcus Lin</h3>
+            <span>Operations Director, Ember Labs</span>
+          </article>
+          <article class="card testimonial-card">
+            <p>“The team combined strong design with real development discipline. Performance improved, bounce rate dropped, and our pages finally feel cohesive.”</p>
+            <h3>Sofia Ramirez</h3>
+            <span>Marketing Lead, BrightStone Co.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2>Snapshots from recent creative work</h2>
+          <p>Click any image to open the lightbox gallery.</p>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+          <button class="gallery-item" data-image="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" aria-label="Open modern office workspace image">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt="Modern workspace with team collaboration" />
+          </button>
+          <button class="gallery-item" data-image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" aria-label="Open analytics dashboard image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Analytics dashboard on a desktop monitor" />
+          </button>
+          <button class="gallery-item" data-image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" aria-label="Open strategy meeting image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Team strategy meeting with laptops and notebooks" />
+          </button>
+          <button class="gallery-item" data-image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" aria-label="Open design process image">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Creative design process with sketches and laptops" />
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image gallery lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close gallery">×</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image">❮</button>
+    <img id="lightbox-image" src="" alt="Expanded gallery item" />
+    <button class="lightbox-nav next" id="lightbox-next" aria-label="Next image">❯</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Luminate Studio</h2>
+        <p>Creative digital strategy, design systems, and web experiences built for growth.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@luminatestudio.test">hello@luminatestudio.test</a></li>
+          <li><a href="tel:+12085551234">(208) 555-1234</a></li>
+          <li>Boise, Idaho</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Luminate Studio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

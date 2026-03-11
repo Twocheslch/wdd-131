@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Luminate Studio and submit a project inquiry." />
+  <title>Contact | Luminate Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/navigation.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/form-validation.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="logo" href="index.html" aria-label="Luminate Studio home">Luminate<span>Studio</span></a>
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero section section-alt">
+      <div class="container narrow">
+        <p class="eyebrow">Contact</p>
+        <h1>Let’s talk about your next digital project</h1>
+        <p class="lead">Tell us what you’re building, where you’re stuck, and how we can help.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div class="card" style="padding: 1.5rem;">
+          <h2>Project Inquiry</h2>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required aria-describedby="name-error" />
+              <small class="error-message" id="name-error"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" required aria-describedby="email-error" />
+              <small class="error-message" id="email-error"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" rows="6" required aria-describedby="message-error"></textarea>
+              <small class="error-message" id="message-error"></small>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+            <p id="form-success" class="form-success" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="contact-side-stack">
+          <div class="card map-placeholder" aria-label="Office map placeholder">
+            <h2>Visit Our Office</h2>
+            <div class="map-box">Interactive Map Placeholder</div>
+            <p>123 Market Street, Suite 400<br />Boise, Idaho</p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list" id="faq-list">
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">How long does a typical project take?</button>
+                <div class="faq-answer">
+                  <p>Most website projects take between 4 and 10 weeks depending on content readiness, feature scope, and review cycles.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Do you offer ongoing support?</button>
+                <div class="faq-answer">
+                  <p>Yes. We offer maintenance, content support, design refinement, and analytics review through monthly retainers.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">Can you work with an existing brand system?</button>
+                <div class="faq-answer">
+                  <p>Absolutely. We can extend existing brand guidelines or help clean up inconsistencies in your current assets.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Luminate Studio</h2>
+        <p>Creative digital strategy, design systems, and web experiences built for growth.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@luminatestudio.test">hello@luminatestudio.test</a></li>
+          <li><a href="tel:+12085551234">(208) 555-1234</a></li>
+          <li>Boise, Idaho</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Luminate Studio. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

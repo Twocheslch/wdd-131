@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2fff8;
+  color: #23443a;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #98e6c1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  text-decoration: none;
+  background-color: #5ccf9a;
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #43b884;
+}
+
+main {
+  padding: 2rem;
+}
+
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hero-text,
+.hero-image {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  margin-bottom: 1rem;
+}
+
+.hero-text button {
+  background-color: #5ccf9a;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-text button:hover {
+  background-color: #43b884;
+}
+
+.placeholder {
+  background-color: #d8f7e8;
+  border: 2px dashed #5ccf9a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #2f6b56;
+}
+
+.hero-image {
+  min-height: 250px;
+  border-radius: 12px;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.recipe-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card-image {
+  height: 180px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.recipe-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  background-color: #98e6c1;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Dynamic scaling for screens under 700px */
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Name</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">CompanyName</a>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                <img src="images/icons/light-mode.svg" alt="Light mode icon" id="mode-icon" width="24" height="24">
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Company Name</h1>
+            <p>We specialize in providing top-notch services to help your business grow.</p>
+            <a href="#services" class="btn">Learn More</a>
+            <a href="#" class="btn btn-outline">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>We offer a wide range of services to meet your business needs.</p>
+            <div id="service-cards"></div>
+        </div>
+    </section>
+
+    <section id="statistics">
+        <div class="container">
+            <div class="stat-card">
+                <span data-value="120" class="counter">0</span>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-card">
+                <span data-value="30" class="counter">0</span>
+                <p>Clients Served</p>
+            </div>
+            <div class="stat-card">
+                <span data-value="10" class="counter">0</span>
+                <p>Years of Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <blockquote>
+                "Excellent service! Highly recommend."
+                <footer>- John Doe, CEO of XYZ Corp</footer>
+            </blockquote>
+            <blockquote>
+                "Great team and quick turnaround time."
+                <footer>- Jane Smith, Marketing Manager at ABC Inc</footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Our Work</h2>
+            <div class="gallery-images">
+                <img src="images/hero.jpg" alt="Project Image 1" data-lightbox="image-1">
+                <img src="images/team.jpg" alt="Project Image 2" data-lightbox="image-2">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/navigation.js"></script>
+    <script defer src="js/animations.js"></script>
+</body>
+</html>

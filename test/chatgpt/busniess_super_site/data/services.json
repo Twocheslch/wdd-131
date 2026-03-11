@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Brand Identity System",
+    "category": "branding",
+    "description": "Strategic brand positioning, visual direction, and design standards that create a consistent public identity.",
+    "details": "This service combines messaging alignment, visual exploration, and reusable identity guidelines so teams can communicate consistently across web, print, and social touchpoints.",
+    "timeline": "2-4 weeks",
+    "price": "From $1,800",
+    "features": [
+      "Positioning workshop",
+      "Visual mood boards",
+      "Logo direction and color system",
+      "Mini style guide"
+    ]
+  },
+  {
+    "title": "Responsive Website Design",
+    "category": "web",
+    "description": "Modern page layouts built for performance, clarity, and responsive behavior across devices.",
+    "details": "Ideal for organizations that need a polished web presence with scalable front-end structure, clear calls to action, and accessibility-conscious design patterns.",
+    "timeline": "4-8 weeks",
+    "price": "From $3,500",
+    "features": [
+      "Wireframes and page comps",
+      "Responsive UI system",
+      "Accessibility review",
+      "Launch-ready front-end build"
+    ]
+  },
+  {
+    "title": "Content Strategy Sprint",
+    "category": "marketing",
+    "description": "Clarify what to say, where to say it, and how to structure content for better engagement.",
+    "details": "This sprint helps teams simplify their message, organize page hierarchy, and create stronger calls to action across key customer journeys.",
+    "timeline": "1-2 weeks",
+    "price": "From $1,200",
+    "features": [
+      "Audience messaging map",
+      "Homepage content outline",
+      "CTA recommendations",
+      "Editorial direction"
+    ]
+  },
+  {
+    "title": "Ongoing Website Support",
+    "category": "support",
+    "description": "Monthly support for updates, design tweaks, analytics review, and content maintenance.",
+    "details": "A retainer-based option for teams that need dependable help after launch, including bug fixes, incremental improvements, and content changes.",
+    "timeline": "Monthly",
+    "price": "From $850/mo",
+    "features": [
+      "Monthly support hours",
+      "Performance checks",
+      "Content updates",
+      "Priority requests"
+    ]
+  },
+  {
+    "title": "Landing Page Campaign Kit",
+    "category": "marketing",
+    "description": "Focused conversion page design for lead generation, product launches, or seasonal campaigns.",
+    "details": "Designed to help marketing teams move faster with campaign-specific landing pages, persuasive layouts, and analytics-ready tracking structure.",
+    "timeline": "2-3 weeks",
+    "price": "From $1,600",
+    "features": [
+      "Campaign messaging section",
+      "Lead capture UI",
+      "Responsive page build",
+      "Analytics event planning"
+    ]
+  },
+  {
+    "title": "Front-End Performance Audit",
+    "category": "web",
+    "description": "Review your current website to identify layout, speed, accessibility, and usability issues.",
+    "details": "This audit surfaces technical and UX issues that may be hurting retention or conversions, with prioritized recommendations your team can act on quickly.",
+    "timeline": "1 week",
+    "price": "From $950",
+    "features": [
+      "Performance review",
+      "Accessibility findings",
+      "Layout consistency review",
+      "Actionable improvement checklist"
+    ]
+  }
+]
