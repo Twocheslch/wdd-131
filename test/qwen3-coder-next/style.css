@@ -1,0 +1,240 @@
+/* --- CSS VARIABLES & RESET --- */
+:root {
+    --primary-mint: #98FF98;
+    --dark-mint: #556b2f; /* Dark Olive Green for text contrast */
+    --light-mint: #E0F2E0;
+    --white: #ffffff;
+    --text-grey: #4a5a4a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-mint);
+    color: var(--text-grey);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(85, 107, 47, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-mint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-grey);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-mint);
+}
+
+/* --- MAIN CONTENT LAYOUT --- */
+.content-container {
+    flex: 1; /* Pushes footer down */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.subpage {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.active-page {
+    display: block; /* Show only active page */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HOME PAGE STYLES --- */
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    color: var(--dark-mint);
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    background-color: var(--primary-mint);
+    color: var(--white);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #80ee80;
+    transform: scale(1.05);
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.highlight-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    opacity: 0.9; /* Slight transparency for placeholder look */
+}
+
+/* --- RECIPES PAGE STYLES --- */
+.page-title {
+    text-align: center;
+    color: var(--dark-mint);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.recipe-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(85, 107, 47, 0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    flex: 1 1 400px; /* Grows and shrinks */
+}
+
+.card-content {
+    padding: 2rem;
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category {
+    background-color: var(--primary-mint);
+    color: var(--dark-mint);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.recipe-meta {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 1.5rem 0;
+    color: var(--dark-mint);
+    font-weight: 600;
+}
+
+/* --- ABOUT & CONTACT STYLES --- */
+.contact-container {
+    background-color: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--primary-mint);
+    border-radius: 8px;
+    font-family: inherit;
+    background-color: #f9fdf9;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.social-links a {
+    color: var(--dark-mint);
+    text-decoration: none;
+    margin-left: 10px;
+}
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background-color: var(--dark-mint);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}

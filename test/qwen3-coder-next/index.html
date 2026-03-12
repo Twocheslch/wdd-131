@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minty Recipe Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="logo">
+            🍽️ Minty Kitchen
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')" class="active" id="link-home">Home</a></li>
+            <li><a href="#" onclick="showPage('recipes')" id="link-recipes">Recipes</a></li>
+            <li><a href="#" onclick="showPage('about')" id="link-about">About & Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="content-container">
+        
+        <!-- Subpage 1: Home -->
+        <section id="home" class="subpage active-page">
+            <div class="hero-section">
+                <h1>Simple Ingredients, Fresh Adventures</h1>
+                <p>Welcome to your digital cookbook. Browse our collection of fresh, mint-themed recipes designed for the modern chef.</p>
+                <button onclick="showPage('recipes')" class="cta-button">Start Cooking</button>
+            </div>
+            
+            <div class="highlights">
+                <div class="highlight-card">
+                    <img src="https://placehold.co/300x200/e0f2e0/556b2f?text=Breakfast" alt="Breakfast Placeholder">
+                    <h3>Morning Delights</h3>
+                    <p>Start your day fresh with our minty breakfast collection.</p>
+                </div>
+                <div class="highlight-card">
+                    <img src="https://placehold.co/300x200/e0f2e0/556b2f?text=Lunch" alt="Lunch Placeholder">
+                    <h3>Light Lunches</h3>
+                    <p>Soothing soups and zesty salads for the afternoon.</p>
+                </div>
+                <div class="highlight-card">
+                    <img src="https://placehold.co/300x200/e0f2e0/556b2f?text=Dinner" alt="Dinner Placeholder">
+                    <h3>Dinner Favorites</h3>
+                    <p>Hearty mains and refreshing side dishes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subpage 2: Recipes -->
+        <section id="recipes" class="subpage">
+            <h2 class="page-title">Our Recipe Collection</h2>
+            
+            <!-- Recipe Card 1 -->
+            <article class="recipe-card">
+                <img src="https://placehold.co/600x400/c1e1c1/334d33?text=Mint+Pesto+Pasta" alt="Mint Pesto Pasta">
+                <div class="card-content">
+                    <span class="category">Dinner</span>
+                    <h3>Classic Mint Pesto Pasta</h3>
+                    <p>A vibrant green pasta dish made with fresh garden mint, basil, and pine nuts. Ready in 20 minutes!</p>
+                    <ul class="recipe-meta">
+                        <li>⏱️ 20 mins</li>
+                        <li>🔥 450 kcal</li>
+                        <li>🥗 Vegetarian</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Recipe Card 2 -->
+            <article class="recipe-card">
+                <img src="https://placehold.co/600x400/c1e1c1/334d33?text=Mint+Watermelon+Salad" alt="Mint Watermelon Salad">
+                <div class="card-content">
+                    <span class="category">Appetizer</span>
+                    <h3>Summer Mint Watermelon Salad</h3>
+                    <p>The perfect hot-weather dish. Juicy watermelon, salty feta cheese, and a sprinkle of fresh mint.</p>
+                    <ul class="recipe-meta">
+                        <li>⏱️ 10 mins</li>
+                        <li>🔥 120 kcal</li>
+                        <li>🌱 Vegan Option</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Recipe Card 3 -->
+            <article class="recipe-card">
+                <img src="https://placehold.co/600x400/c1e1c1/334d33?text=Mint+Chocolate+Cheesecake" alt="Mint Chocolate Cheesecake">
+                <div class="card-content">
+                    <span class="category">Dessert</span>
+                    <h3>Double Chocolate Mint Cheesecake</h3>
+                    <p>Rich, creamy, and refreshing. This cheesecake is a restaurant-quality treat you can make at home.</p>
+                    <ul class="recipe-meta">
+                        <li>⏱️ 4 hours</li>
+                        <li>🔥 520 kcal</li>
+                        <li>🍰 Baked</li>
+                    </ul>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Subpage 3: About & Contact -->
+        <section id="about" class="subpage">
+            <div class="contact-container">
+                <h2 class="page-title">About Our Kitchen</h2>
+                <p>Minty Recipe Book was founded in 2023 with a simple goal: to document family recipes using fresh herbs, especially mint. We believe that food is not just sustenance, but a way to bring people together.</p>
+                
+                <br>
+                <h3>Get In Touch</h3>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Recipe suggestions or questions..."></textarea>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+
+                <div class="social-links">
+                    <p>Follow us on social media:</p>
+                    <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Minty Recipe Book. All rights reserved.</p>
+            <p>Design by You</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript File Link -->
+    <script src="script.js"></script>
+
+</body>
+</html>
