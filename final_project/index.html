@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bishop's Media</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="scripts/rotator.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true"><img class="logo-img" src="images/logo/logo.webp" alt="">
+                </div>
+
+                <div class="brand-text">
+                    <span class="brand-name">Josh Bishop</span>
+                    <span class="brand-tagline">Professional Photography</span>
+                </div>
+            </div>
+
+            <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="site-nav"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="nav" id="site-nav" aria-label="Primary navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="real-estate.html" class="nav-link">Real Estate</a>
+                <a href="clients.html" class="nav-link">Client Photos</a>
+                <a href="video.html" class="nav-link">Video</a>
+                <a href="contact.html" class="nav-link nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+
+        <section class="tiles">
+            <div class="container">
+                <div class="tile-grid">
+                    <a class="tile tile--rotate" href="real-estate.html" data-rotate="realestate"
+                        aria-label="Real Estate gallery">
+                        <div class="tile-rotator">
+                            <!-- first image to show on new page for RE slideshow -->
+                            <img class="slide current" src="images/re-subpage/white-black-boogaloo-04.webp" alt="Real estate photo"> 
+                            <img class="slide next" src="images/re-subpage/re-kitchen-island.webp" alt=""
+                                aria-hidden="true">
+                        </div>
+                    </a>
+
+                    <a class="tile tile--rotate" href="clients.html" data-rotate="clients"
+                        aria-label="Client Photos gallery">
+                        <div class="tile-rotator">
+                            <!-- first image to show on new page for company slideshow-->
+                            <img class="slide current" src="images/company-subpage/comp-filling-gas.webp"
+                                alt="Client photo">
+                            <img class="slide next" src="images/company-subpage/comp-touching-engine.webp" alt=""
+                                aria-hidden="true">
+                        </div>
+                    </a>
+
+                    <a class="tile" href="video.html" aria-label="Video portfolio">
+                        <iframe
+                            src="https://www.youtube.com/embed/4sCtvaL4vBQ?autoplay=1&mute=1&controls=0&rel=0&playsinline=1"
+                            title="Video preview" frameborder="0"
+                            allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen>
+                        </iframe>
+                    </a>
+                </div>
+
+                <div class="tile-labels" aria-hidden="true">
+                    <span>Real Estate</span>
+                    <span>Client Photos</span>
+                    <span>Video</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-card">
+                    <div class="hero-portrait">
+                        <img src="images/hero-portrait/josh-portrait-newer.webp" alt="Portrait of the photographer" />
+                    </div>
+
+                    <div class="hero-quote">
+                        <p class="quote">
+                            My name is Josh! I am a real estate photographer and videographer with three years of
+                            experience in photo and video. I create clean, professional visuals for property listings.
+                            While studying at BYU-Idaho, I’ve refined a modern approach focused on quality, consistency,
+                            and results—helping agents present homes at their best.
+                        </p>
+
+                        <p class="quote-tagline">Where Listings Come to Life</p>
+                        <p class="quote-attrib">Josh Bishop</p>
+
+                        <div class="hero-actions">
+                            <a class="btn" href="real-estate.html">View Real Estate</a>
+                            <a class="btn btn-outline" href="contact.html">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3 class="footer-title">Contact</h3>
+                <p class="footer-text">
+                    Phone: <a href="tel:+4066002804">(406) 600-2804</a><br />
+                    Email: <a href="mailto:bishopvideosphotos@gmail.com">bishopvideosphotos@gmail.com</a><br />
+                    Location: Rexburg, ID
+                </p>
+            </div>
+
+            <!-- space for the footer -->
+            <div class="footer-col footer-logo" aria-label="Logo area">
+                <div class="logo-box">
+                    <img class="logo-img" src="images/logo/logo.webp" alt="">
+                </div>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h3 class="footer-title">Legal</h3>
+                <p class="footer-text">
+                    © <span id="year">2026</span> Joshua Bishop<br />
+                    All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
