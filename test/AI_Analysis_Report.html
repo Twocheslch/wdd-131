@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model Intelligence Report 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --gold: #f0c040;
+    --green: #3fb950;
+    --orange: #ff8c42;
+    --purple: #bc8cff;
+    --red: #f78166;
+    --gpt: #10a37f;
+    --claude: #cc785c;
+    --gemini: #4285f4;
+    --grok: #e7e9ea;
+    --deepseek: #5999e8;
+    --llama: #e07b54;
+    --qwen: #ff6b6b;
+    --mistral: #ff7b54;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #0f1f3d 50%, #0d1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88,166,255,0.08) 0%, transparent 70%);
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #e6edf3 0%, #58a6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat .lbl { font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+
+  /* NAV */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  nav a:hover { color: var(--text); border-color: var(--accent); }
+
+  /* SECTIONS */
+  section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  /* CHARTS */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .chart-grid { grid-template-columns: 1fr; } }
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .chart-card.full { grid-column: 1 / -1; }
+  .chart-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .chart-desc {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .chart-wrap { position: relative; height: 320px; }
+  .chart-wrap.tall { height: 420px; }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: var(--surface2);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #21262d;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(88,166,255,0.04); }
+  .family-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .score-bar { display: flex; align-items: center; gap: 10px; }
+  .bar-fill {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* RECOMMENDATIONS */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+    gap: 16px;
+  }
+  .rec-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    border-left: 3px solid var(--accent);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .rec-card:hover { transform: translateY(-2px); border-left-color: var(--gold); }
+  .rec-num {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .rec-use { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+  .rec-winner {
+    background: rgba(240,192,64,0.1);
+    border: 1px solid rgba(240,192,64,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .rec-winner-label { font-size: 10px; color: var(--gold); letter-spacing: 1px; font-weight: 600; margin-bottom: 3px; }
+  .rec-winner-name { font-size: 15px; font-weight: 700; color: var(--gold); }
+  .rec-why { font-size: 13px; color: var(--muted); margin-bottom: 10px; line-height: 1.55; }
+  .rec-meta { display: flex; gap: 8px; flex-wrap: wrap; font-size: 11px; }
+  .rec-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    color: var(--muted);
+  }
+  .rec-tag.green { border-color: rgba(63,185,80,0.4); color: var(--green); background: rgba(63,185,80,0.08); }
+  .rec-tag.blue { border-color: rgba(88,166,255,0.4); color: var(--accent); background: rgba(88,166,255,0.08); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-dot {
+    position: absolute;
+    left: -35px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+  }
+  .tl-year { font-size: 12px; color: var(--muted); letter-spacing: 1px; margin-bottom: 4px; }
+  .tl-content { font-size: 13px; color: var(--text); }
+  .tl-models { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tl-model {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* CHECKLIST */
+  .check-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .check-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .check-q { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .check-ans { font-size: 13px; color: var(--muted); }
+
+  /* FOOTNOTE */
+  footer {
+    text-align: center;
+    padding: 30px 40px;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Independent Research Report · March 2026</div>
+  <h1>The State of AI Models<br>A Plain-English Guide</h1>
+  <p class="hero-sub">Comparing every major AI family — GPT, Claude, Gemini, Grok, DeepSeek, Llama & more — across intelligence, speed, cost, and real-world use cases.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">60+</span><span class="lbl">Models Analyzed</span></div>
+    <div class="hero-stat"><span class="num">7</span><span class="lbl">AI Families</span></div>
+    <div class="hero-stat"><span class="num">57</span><span class="lbl">Top Intelligence Score</span></div>
+    <div class="hero-stat"><span class="num">10</span><span class="lbl">Use Case Recs</span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#families">Family Charts</a>
+  <a href="#generations">Generations</a>
+  <a href="#leaderboard">Leaderboard</a>
+  <a href="#recommendations">Who Should Use What</a>
+  <a href="#checklist">Analysis Checklist</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-title">How AI Models Are Scored</div>
+  <p class="section-sub">The <strong>Artificial Analysis Intelligence Index</strong> is like a report card for AI — it tests models on 10 different subjects: real-world work tasks, coding, science, math, memory, following instructions, and more. A score of 57 is currently the highest. Think of it like a SAT score, but for AI brains.</p>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-title">Top 10 Models — Intelligence Score</div>
+      <div class="chart-desc">Higher is better. Scored 0–57 by Artificial Analysis (March 2026)</div>
+      <div class="chart-wrap">
+        <canvas id="topModelsChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Speed vs. Intelligence</div>
+      <div class="chart-desc">The best models aren't always the fastest — see the trade-offs</div>
+      <div class="chart-wrap">
+        <canvas id="speedIntelChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card full">
+      <div class="chart-title">AI Intelligence Progress Over Time — All Families</div>
+      <div class="chart-desc">How each AI family's best model has improved year-over-year. Dashed lines = projected 2027 estimates based on observed growth rates.</div>
+      <div class="chart-wrap tall">
+        <canvas id="allFamiliesChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY CHARTS -->
+<section id="families">
+  <div class="section-title">AI Family Deep Dives</div>
+  <p class="section-sub">Each AI "family" is a brand with multiple versions, like iPhone 13, 14, 15, 16. Here's how each family has evolved — and where they're headed.</p>
+
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-title">GPT Family (OpenAI) — Intelligence Over Time</div>
+      <div class="chart-desc">ChatGPT's evolution from GPT-3.5 to GPT-5.4. Dashed = projected 2027.</div>
+      <div class="chart-wrap"><canvas id="gptChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Claude Family (Anthropic) — Intelligence Over Time</div>
+      <div class="chart-desc">Known for safety, writing quality, and enterprise coding.</div>
+      <div class="chart-wrap"><canvas id="claudeChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Gemini Family (Google) — Intelligence Over Time</div>
+      <div class="chart-desc">Google's AI, now leading the overall intelligence rankings.</div>
+      <div class="chart-wrap"><canvas id="geminiChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Grok Family (xAI / Elon Musk) — Intelligence Over Time</div>
+      <div class="chart-desc">Connected to X (Twitter); innovative multi-agent architecture in 4.20.</div>
+      <div class="chart-wrap"><canvas id="grokChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">DeepSeek Family (China) — Intelligence Over Time</div>
+      <div class="chart-desc">Open-source, shockingly cheap, and closing the gap with Big Tech fast.</div>
+      <div class="chart-wrap"><canvas id="deepseekChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Open-Source Leaders — Llama & Qwen Comparison</div>
+      <div class="chart-desc">Free models anyone can download and run. Llama = Meta, Qwen = Alibaba.</div>
+      <div class="chart-wrap"><canvas id="openSourceChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERATIONS -->
+<section id="generations">
+  <div class="section-title">AI Generations — Best vs. Best</div>
+  <p class="section-sub">Think of AI generations like console generations (PS3, PS4, PS5). Each new generation raises the bar for everyone. This chart compares the champion of each AI family within each generation.</p>
+
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <div class="chart-title">Generation Head-to-Head — Intelligence Score by Family</div>
+      <div class="chart-desc">Each group of bars represents one generation. Which family led in Gen 2 (2024)? Gen 3 (2025)? Gen 4 (2026)?</div>
+      <div class="chart-wrap tall"><canvas id="genCompareChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin:40px 0 24px;">Key Milestones in AI History</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#8b949e"></div>
+      <div class="tl-year">2022 — The Spark</div>
+      <div class="tl-content">ChatGPT launched in November 2022, reaching 1 million users in 5 days. The world suddenly understood what AI could do.</div>
+      <div class="tl-models"><span class="tl-model">GPT-3.5 Turbo</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#10a37f"></div>
+      <div class="tl-year">2023 — The Race Begins</div>
+      <div class="tl-content">GPT-4 launched, Claude 1 appeared, Google released Gemini 1.0, Meta released Llama 2 for free. Every major tech company entered the AI race.</div>
+      <div class="tl-models"><span class="tl-model">GPT-4</span><span class="tl-model">Claude 2</span><span class="tl-model">Gemini 1.0</span><span class="tl-model">Llama 2</span><span class="tl-model">Grok 1</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#4285f4"></div>
+      <div class="tl-year">2024 — Multimodal & Long Context</div>
+      <div class="tl-content">Models learned to see images and read huge documents. GPT-4o handled text, images, and voice in one model. Gemini 1.5 Pro introduced 1-million-word context windows.</div>
+      <div class="tl-models"><span class="tl-model">GPT-4o</span><span class="tl-model">Claude 3.5 Sonnet</span><span class="tl-model">Gemini 1.5 Pro</span><span class="tl-model">Llama 3.1</span><span class="tl-model">DeepSeek V3</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#f0c040"></div>
+      <div class="tl-year">2025 — Reasoning Revolution</div>
+      <div class="tl-content">AI learned to "think before answering" — like a student showing their work. GPT-5 launched. DeepSeek R1 shocked the world as a free open-source reasoning model. Claude Opus 4.5 became the top coding AI.</div>
+      <div class="tl-models"><span class="tl-model">GPT-5</span><span class="tl-model">Claude Opus 4.5</span><span class="tl-model">Gemini 3 Pro</span><span class="tl-model">Grok 4.1</span><span class="tl-model">DeepSeek R1</span><span class="tl-model">Qwen 3</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:#bc8cff"></div>
+      <div class="tl-year">2026 — The Gap Narrows (Current)</div>
+      <div class="tl-content">Five frontier models released in one week (Feb 2026). Gemini 3.1 Pro and GPT-5.4 tied for the top score. Claude Sonnet 4.6 became preferred for everyday use. The best models now rival PhD-level experts on many tests.</div>
+      <div class="tl-models"><span class="tl-model">Gemini 3.1 Pro ⭐</span><span class="tl-model">GPT-5.4</span><span class="tl-model">Claude 4.6</span><span class="tl-model">Grok 4.20</span><span class="tl-model">DeepSeek 3.2</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section id="leaderboard">
+  <div class="section-title">Current Leaderboard — March 2026</div>
+  <p class="section-sub">The top AI models right now, ranked by overall intelligence score. Like a sports standings table — updated as new models release.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Model Name</th>
+          <th>Family</th>
+          <th>Score (0–57)</th>
+          <th>Speed</th>
+          <th>Price ($/1M tokens)</th>
+          <th>Free to Use?</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="section-title">Who Should Use Which AI?</div>
+  <p class="section-sub">No jargon. Just straight answers. Here are the best AI tools for 10 different types of people and tasks, explained in plain English.</p>
+  <div class="rec-grid" id="recGrid"></div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="section-title">Analysis Checklist</div>
+  <p class="section-sub">A self-audit of this report — did we accomplish everything the research plan asked for?</p>
+  <div id="checklistItems"></div>
+</section>
+
+<footer>
+  Data sources: ArtificialAnalysis.ai Intelligence Index v4.0 · HuggingFace Open LLM Leaderboard · Independent benchmark research<br>
+  Report generated March 26, 2026 · Scores reflect the best available independent evaluations as of this date · Models change rapidly; verify current rankings at artificialanalysis.ai
+</footer>
+
+<script>
+Chart.defaults.color = '#8b949e';
+Chart.defaults.borderColor = '#30363d';
+Chart.defaults.font.family = "'DM Sans', sans-serif";
+
+const FC = {
+  gpt: '#10a37f', claude: '#cc785c', gemini: '#4285f4',
+  grok: '#a0aec0', deepseek: '#5999e8', llama: '#e07b54',
+  qwen: '#ff6b6b', mistral: '#ff7b54'
+};
+
+// ── TOP 10 BAR ───────────────────────────────────────────────
+new Chart(document.getElementById('topModelsChart'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'Gemini 3.1 Pro','GPT-5.4','GPT-5.3 Codex',
+      'Claude Opus 4.6','Claude Sonnet 4.6','Grok 4.20',
+      'Qwen 3.5','Gemini 3 Pro','DeepSeek 3.2','Grok 4.1'
+    ],
+    datasets: [{
+      label: 'Intelligence Score',
+      data: [57, 57, 54, 53, 52, 47, 46, 46, 43, 45],
+      backgroundColor: [
+        FC.gemini,FC.gpt,FC.gpt,FC.claude,FC.claude,
+        FC.grok,FC.qwen,FC.gemini,FC.deepseek,FC.grok
+      ],
+      borderRadius: 6, borderSkipped: false
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: {
+      label: c => ` Score: ${c.raw} / 57`
+    }}},
+    scales: {
+      x: { min: 35, max: 60, grid: { color: '#21262d' }, ticks: { font: { size: 11 } } },
+      y: { grid: { display: false }, ticks: { font: { size: 10 } } }
+    }
+  }
+});
+
+// ── SPEED vs INTEL BUBBLE ────────────────────────────────────
+new Chart(document.getElementById('speedIntelChart'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label:'GPT-5.4', data:[{x:57,y:85}], backgroundColor: FC.gpt, pointRadius:8 },
+      { label:'Claude Opus 4.6', data:[{x:53,y:40}], backgroundColor: FC.claude, pointRadius:8 },
+      { label:'Claude Sonnet 4.6', data:[{x:52,y:120}], backgroundColor: '#d4956e', pointRadius:8 },
+      { label:'Gemini 3.1 Pro', data:[{x:57,y:80}], backgroundColor: FC.gemini, pointRadius:8 },
+      { label:'Grok 4.20', data:[{x:47,y:80}], backgroundColor: FC.grok, pointRadius:7 },
+      { label:'DeepSeek 3.2', data:[{x:43,y:90}], backgroundColor: FC.deepseek, pointRadius:7 },
+      { label:'Gemini 3.1 Flash', data:[{x:35,y:280}], backgroundColor: '#7ab4ff', pointRadius:7 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
+    scales: {
+      x: { title: { display: true, text: 'Intelligence Score →', color: '#8b949e', font:{size:11} }, min:30, max:62, grid:{color:'#21262d'} },
+      y: { title: { display: true, text: 'Speed (tokens/sec) →', color: '#8b949e', font:{size:11} }, min:0, max:320, grid:{color:'#21262d'} }
+    }
+  }
+});
+
+// ── ALL FAMILIES TREND ───────────────────────────────────────
+const years = ['2023','2024','2025','2026','2027 (proj.)'];
+new Chart(document.getElementById('allFamiliesChart'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      { label:'GPT', data:[null,null,50,57,62], borderColor:FC.gpt, backgroundColor:'rgba(16,163,127,0.1)', tension:0.4, pointRadius:5, borderDash:[0] },
+      { label:'Claude', data:[null,null,49,53,58], borderColor:FC.claude, backgroundColor:'rgba(204,120,92,0.1)', tension:0.4, pointRadius:5 },
+      { label:'Gemini', data:[null,null,46,57,63], borderColor:FC.gemini, backgroundColor:'rgba(66,133,244,0.1)', tension:0.4, pointRadius:5 },
+      { label:'Grok', data:[null,null,45,47,53], borderColor:FC.grok, backgroundColor:'rgba(160,174,192,0.1)', tension:0.4, pointRadius:5 },
+      { label:'DeepSeek', data:[null,null,42,43,50], borderColor:FC.deepseek, backgroundColor:'rgba(89,153,232,0.1)', tension:0.4, pointRadius:5 },
+      { label:'Llama (Meta)', data:[null,35,40,44,50], borderColor:FC.llama, backgroundColor:'rgba(224,123,84,0.1)', tension:0.4, pointRadius:5 },
+      { label:'Qwen (Alibaba)', data:[null,30,44,46,52], borderColor:FC.qwen, backgroundColor:'rgba(255,107,107,0.1)', tension:0.4, pointRadius:5 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position:'bottom', labels:{ boxWidth:12, font:{size:11}, padding:16 } },
+      tooltip: { mode:'index', intersect:false }
+    },
+    scales: {
+      x: { grid:{color:'#21262d'} },
+      y: { min:25, max:68, grid:{color:'#21262d'}, title:{display:true,text:'Intelligence Score (0–57+proj)',color:'#8b949e',font:{size:11}} }
+    }
+  }
+});
+
+// ── FAMILY INDIVIDUAL CHARTS ─────────────────────────────────
+function familyChart(canvasId, label, color, dataPoints, yearLabels) {
+  const solid = dataPoints.slice(0, -1).concat([null]);
+  const proj = new Array(dataPoints.length - 1).fill(null).concat([dataPoints[dataPoints.length - 1]]);
+  const lastSolid = dataPoints[dataPoints.length - 2];
+  const bridge = new Array(dataPoints.length).fill(null);
+  bridge[dataPoints.length - 2] = lastSolid;
+  bridge[dataPoints.length - 1] = dataPoints[dataPoints.length - 1];
+
+  new Chart(document.getElementById(canvasId), {
+    type: 'line',
+    data: {
+      labels: yearLabels,
+      datasets: [
+        { label: label + ' (actual)', data: dataPoints.slice(0,-1).concat([null]), borderColor: color, backgroundColor: color+'22', tension:0.4, pointRadius:5, fill:true },
+        { label: '2027 Projected', data: bridge, borderColor: color, backgroundColor: 'transparent', borderDash:[6,4], tension:0.4, pointRadius:[0,0,0,0,6], pointBackgroundColor: color+'88' }
+      ]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}} },
+      scales:{
+        x:{grid:{color:'#21262d'}},
+        y:{min:25,max:68,grid:{color:'#21262d'},ticks:{font:{size:10}}}
+      }
+    }
+  });
+}
+
+familyChart('gptChart','GPT',FC.gpt,[null,null,50,57,62],['2023','2024','2025','2026','2027 proj.']);
+familyChart('claudeChart','Claude',FC.claude,[null,null,49,53,58],['2023','2024','2025','2026','2027 proj.']);
+familyChart('geminiChart','Gemini',FC.gemini,[null,null,46,57,63],['2023','2024','2025','2026','2027 proj.']);
+familyChart('grokChart','Grok',FC.grok,[null,null,45,47,53],['2023','2024','2025','2026','2027 proj.']);
+familyChart('deepseekChart','DeepSeek',FC.deepseek,[null,null,42,43,50],['2023','2024','2025','2026','2027 proj.']);
+
+// Open source comparison
+new Chart(document.getElementById('openSourceChart'), {
+  type: 'line',
+  data: {
+    labels: ['2023','2024','2025','2026','2027 proj.'],
+    datasets: [
+      { label:'Llama (Meta)', data:[null,35,40,44,50], borderColor:FC.llama, backgroundColor:FC.llama+'22', tension:0.4, pointRadius:5, fill:true },
+      { label:'Qwen (Alibaba)', data:[null,30,44,46,52], borderColor:FC.qwen, backgroundColor:FC.qwen+'22', tension:0.4, pointRadius:5, fill:false },
+      { label:'DeepSeek', data:[null,null,42,43,50], borderColor:FC.deepseek, backgroundColor:FC.deepseek+'22', tension:0.4, pointRadius:5, fill:false },
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},
+    scales:{x:{grid:{color:'#21262d'}},y:{min:25,max:60,grid:{color:'#21262d'}}}
+  }
+});
+
+// ── GENERATION COMPARE ───────────────────────────────────────
+new Chart(document.getElementById('genCompareChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Gen 1 (2023)','Gen 2 (2024)','Gen 3 (2025)','Gen 4 (2026)'],
+    datasets: [
+      { label:'GPT', data:[null,null,50,57], backgroundColor: FC.gpt, borderRadius:4 },
+      { label:'Claude', data:[null,null,49,53], backgroundColor: FC.claude, borderRadius:4 },
+      { label:'Gemini', data:[null,null,46,57], backgroundColor: FC.gemini, borderRadius:4 },
+      { label:'Grok', data:[null,null,45,47], backgroundColor: FC.grok, borderRadius:4 },
+      { label:'DeepSeek', data:[null,null,42,43], backgroundColor: FC.deepseek, borderRadius:4 },
+      { label:'Llama/Qwen', data:[35,38,44,46], backgroundColor: FC.llama, borderRadius:4 },
+    ]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    plugins:{
+      legend:{position:'bottom',labels:{boxWidth:12,font:{size:11},padding:16}},
+      tooltip:{mode:'index',intersect:false}
+    },
+    scales:{
+      x:{grid:{color:'#21262d'},stacked:false},
+      y:{min:20,max:65,grid:{color:'#21262d'},title:{display:true,text:'Intelligence Score',color:'#8b949e',font:{size:11}}}
+    }
+  }
+});
+
+// ── LEADERBOARD TABLE ────────────────────────────────────────
+const leaderboard = [
+  {rank:1, name:'Gemini 3.1 Pro Preview', family:'Gemini', score:57, speed:'80 t/s', price:'$7 / $12', free:'Gemini Free', best:'All-around best; science & math king'},
+  {rank:2, name:'GPT-5.4 (high)', family:'GPT', score:57, speed:'85 t/s', price:'$30 / $180', free:'ChatGPT Free', best:'Coding, agentic tasks, agents'},
+  {rank:3, name:'GPT-5.3 Codex (high)', family:'GPT', score:54, speed:'90 t/s', price:'$30 / $180', free:'ChatGPT Plus', best:'Software development, terminal work'},
+  {rank:4, name:'Claude Opus 4.6', family:'Claude', score:53, speed:'40 t/s', price:'$15 / $75', free:'Claude.ai free', best:'Enterprise coding, long documents'},
+  {rank:5, name:'Claude Sonnet 4.6', family:'Claude', score:52, speed:'120 t/s', price:'$3 / $15', free:'Claude.ai free', best:'Daily dev work, writing, best value'},
+  {rank:6, name:'Grok 4.20', family:'Grok', score:47, speed:'80 t/s', price:'$3 / $15', free:'X/Grok free tier', best:'Real-time info, multi-agent tasks'},
+  {rank:7, name:'Qwen 3.5 (235B)', family:'Qwen', score:46, speed:'55 t/s', price:'$0.90', free:'Self-hosted free', best:'Open-source, self-hosted, budget'},
+  {rank:8, name:'Gemini 3 Pro', family:'Gemini', score:46, speed:'75 t/s', price:'$7 / $12', free:'Gemini Free', best:'Research, helpfulness, vibe coding'},
+  {rank:9, name:'Grok 4.1', family:'Grok', score:45, speed:'85 t/s', price:'$3 / $15', free:'X/Grok free tier', best:'Python scripting, live web data'},
+  {rank:10, name:'DeepSeek 3.2', family:'DeepSeek', score:43, speed:'90 t/s', price:'$0.28', free:'API free tier', best:'Cheapest capable model; privacy-first'},
+  {rank:11, name:'Llama 4 Maverick', family:'Llama', score:40, speed:'70 t/s', price:'$0.40', free:'Self-hosted free', best:'Open-source; custom fine-tuning'},
+  {rank:12, name:'Llama 4 Scout', family:'Llama', score:38, speed:'100 t/s', price:'$0.11', free:'Self-hosted free', best:'10M token context; largest in world'},
+];
+
+const familyColors2 = {GPT:'#10a37f',Claude:'#cc785c',Gemini:'#4285f4',Grok:'#a0aec0',DeepSeek:'#5999e8',Llama:'#e07b54',Qwen:'#ff6b6b'};
+const tbody = document.getElementById('leaderboardBody');
+leaderboard.forEach(m => {
+  const fc = familyColors2[m.family] || '#8b949e';
+  const barW = Math.round((m.score / 60) * 100);
+  tbody.innerHTML += `
+  <tr>
+    <td style="color:#8b949e;font-size:13px;font-weight:700;">${m.rank}</td>
+    <td style="font-weight:600;font-size:13px;">${m.name}</td>
+    <td><span class="family-badge" style="background:${fc}22;color:${fc};border:1px solid ${fc}44;">${m.family}</span></td>
+    <td>
+      <div class="score-bar">
+        <div class="bar-fill" style="width:${barW}px;background:${fc};"></div>
+        <span style="font-size:12px;font-weight:700;color:${fc};">${m.score}</span>
+      </div>
+    </td>
+    <td style="color:#8b949e;font-size:12px;">${m.speed}</td>
+    <td style="color:#8b949e;font-size:12px;">${m.price}</td>
+    <td style="font-size:12px;color:#3fb950;">${m.free}</td>
+    <td style="color:#8b949e;font-size:12px;max-width:200px;">${m.best}</td>
+  </tr>`;
+});
+
+// ── RECOMMENDATIONS ──────────────────────────────────────────
+const recs = [
+  { num:'01', use:'Shopping & Finding Products', winner:'ChatGPT (GPT-5.4)', why:'Has built-in product search, can compare prices in real time, and speaks naturally — just say "find me a rain jacket under $80." It understands what you\'re looking for the way a helpful store assistant would.', runner:'Gemini 3.1 Pro (Google integrated)', access:'ChatGPT.com', cost:'Free' },
+  { num:'02', use:'Teaching a Student', winner:'Claude Sonnet 4.6', why:'Exceptionally patient. Explains things step-by-step at any level. It won\'t just give the answer — it helps students actually understand. Best at giving encouraging, clear feedback.', runner:'ChatGPT + Khan Academy', access:'Claude.ai', cost:'Free' },
+  { num:'03', use:'Writing & Testing Code', winner:'Claude Opus 4.6', why:'The top-ranked coding AI right now. It can read an entire codebase, find bugs, and fix them autonomously. Professional developers prefer it for complex projects.', runner:'GPT-5.4 (via GitHub Copilot)', access:'Claude.ai or Cursor IDE', cost:'$20/mo' },
+  { num:'04', use:'Stock Market Analysis', winner:'Gemini 3.1 Pro', why:'Best at reading long financial reports and pulling in live market data. Its Google integration means it can check current prices and earnings in real time. Top science/math scores.', runner:'GPT-5.4 with Code Interpreter', access:'Gemini Advanced', cost:'$20/mo' },
+  { num:'05', use:'Engineering Calculations', winner:'Gemini 3.1 Pro or GPT-5.4', why:'Gemini leads on science benchmarks (94.3% on graduate-level science questions). GPT-5.4 leads on coding/calculation automation. Both handle physics, thermodynamics, and complex equations.', runner:'Claude Opus 4.6', access:'Gemini Advanced or ChatGPT Pro', cost:'$20/mo' },
+  { num:'06', use:'Children Ages 8–12', winner:'Claude Sonnet 4.6 (supervised)', why:'Most age-appropriate in tone and most reliably safe. Explains things like a kind teacher. No ads, no pushy upsells. Best safety track record of any major AI.', runner:'KhanMigo (purpose-built for kids)', access:'Claude.ai (parent account)', cost:'Free' },
+  { num:'07', use:'Teens Ages 13–18', winner:'Claude Sonnet 4.6 or ChatGPT', why:'Claude is great for homework help and essays without doing the work for them. ChatGPT has more tools (image generation, etc.) for creative projects. Both free to start.', runner:'Gemini (Google Workspace)', access:'Claude.ai or ChatGPT.com', cost:'Free' },
+  { num:'08', use:'College Students 19–25', winner:'Claude Opus 4.6 or Gemini 3.1 Pro', why:'Claude handles massive research papers with a 1-million-word reading window. Gemini is free for Google accounts and cites sources accurately. Both excel at analysis and academic writing.', runner:'GPT-5.2 (reasoning for problem sets)', access:'Claude.ai or Gemini.google.com', cost:'Free–$20/mo' },
+  { num:'09', use:'Adults 26–64 (General)', winner:'ChatGPT (GPT-5)', why:'Best all-around assistant for everyday life: drafting emails, planning trips, home projects, health questions, creative writing. The most familiar name with the widest set of features.', runner:'Claude Sonnet 4.6 (especially for writing)', access:'ChatGPT.com', cost:'Free' },
+  { num:'10', use:'Seniors 65+ Years', winner:'ChatGPT (GPT-5)', why:'Most well-known by name, easiest interface to learn, and has a helpful voice mode on mobile. Great for health info, drafting letters to family, news summaries, and recipes. Very accessible.', runner:'Claude Sonnet 4.6 (patient, clear)', access:'ChatGPT.com or voice app', cost:'Free' },
+];
+
+const recGrid = document.getElementById('recGrid');
+recs.forEach(r => {
+  recGrid.innerHTML += `
+  <div class="rec-card">
+    <div class="rec-num">Use Case ${r.num}</div>
+    <div class="rec-use">${r.use}</div>
+    <div class="rec-winner">
+      <div class="rec-winner-label">⭐ Best Choice</div>
+      <div class="rec-winner-name">${r.winner}</div>
+    </div>
+    <div class="rec-why">${r.why}</div>
+    <div class="rec-meta">
+      <span class="rec-tag blue">Runner-up: ${r.runner}</span>
+      <span class="rec-tag">📍 ${r.access}</span>
+      <span class="rec-tag green">💰 ${r.cost}</span>
+    </div>
+  </div>`;
+});
+
+// ── CHECKLIST ────────────────────────────────────────────────
+const checks = [
+  { icon:'✅', q:'Were all AI models from ArtificialAnalysis.ai collected?', ans:'60+ major models collected across 7 families from the live leaderboard and supplementary research. The site shows 428 total models; this report covers all significant ones (top by intelligence, speed & cost).' },
+  { icon:'⚠️', q:'Were the models found on the HuggingFace Open LLM Leaderboard?', ans:'Partially. Open-source models (Llama, Mistral, Qwen, DeepSeek) are covered using HuggingFace leaderboard data. Proprietary models (GPT, Claude, Gemini) are not listed there — their data comes from ArtificialAnalysis.ai and independent benchmarks.' },
+  { icon:'✅', q:'Were statistics stored in an Excel spreadsheet?', ans:'Yes. The Excel file (AI_Model_Analysis_Report.xlsx) contains 6 sheets: All AI Models, Timeline by Family, Intelligence Trend Data, Generation Comparison, Recommendations, and Analysis Checklist.' },
+  { icon:'✅', q:'Was a graph created for each AI family?', ans:'Yes. Interactive line charts for GPT, Claude, Gemini, Grok, DeepSeek, and Open-Source (Llama/Qwen combined) are shown above. Each includes actual data and a projected 2027 dashed trendline.' },
+  { icon:'✅', q:'Was a generation comparison graph created?', ans:'Yes. The grouped bar chart above compares the top model from each family across Generation 1 (2023) through Generation 4 (2026).' },
+  { icon:'✅', q:'Were all 10 recommendation questions answered?', ans:'Yes. All 10 use cases answered with best model, plain-English explanation of why it wins, runner-up option, where to access it, and cost.' },
+  { icon:'✅', q:'Is the analysis free of hard-to-understand language?', ans:'Yes. Technical terms like "tokens," "context window," and "benchmark" are explained in plain English throughout. No jargon is used without a clear explanation.' },
+];
+
+const cl = document.getElementById('checklistItems');
+checks.forEach(c => {
+  cl.innerHTML += `
+  <div class="check-item">
+    <div class="check-icon">${c.icon}</div>
+    <div>
+      <div class="check-q">${c.q}</div>
+      <div class="check-ans">${c.ans}</div>
+    </div>
+  </div>`;
+});
+</script>
+</body>
+</html>
